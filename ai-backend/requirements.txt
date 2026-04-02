@@ -1,0 +1,8 @@
+fastapi==0.115.0
+uvicorn==0.30.0
+opencv-python==4.10.0.84
+moviepy==1.0.3
+librosa==0.10.2
+easyocr==1.7.1
+numpy>=1.26.0
+pydantic>=2.0
