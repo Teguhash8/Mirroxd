@@ -1,78 +1,52 @@
-# ⚔️ MIRROXD
-### The Zero-UI Workspace for Android & Samur.AI
-
-<p align="left">
-  <img src="https://img.shields.io/badge/VERSION-0.1.0-EB5757?style=for-the-badge&logo=appveyor" />
-  <img src="https://img.shields.io/badge/ENGINE-TAURI_2.0-2F80ED?style=for-the-badge&logo=tauri" />
-  <img src="https://img.shields.io/badge/AI-GEMINI_READY-6FCF97?style=for-the-badge&logo=google-gemini" />
+<p align="center">
+  <img src="https://img.shields.io/badge/MirroXD-Project_Samur.ai-red?style=for-the-badge&logo=appveyor" />
 </p>
 
----
+# 📱 MirroXD
+### Sebuah Ruang Kerja Digital yang Lebih Manusiawi.
 
-**MirroXD** mendefinisikan ulang cara Anda berinteraksi dengan perangkat Android. Mengadopsi prinsip **Zero-UI**, aplikasi ini membuang layout tradisional dan menggantinya dengan kanvas kreatif yang dinamis, ringan, dan ditenagai oleh kecerdasan buatan.
-
----
-
-## 🔘 FILOSOFI DESAIN
-Aplikasi ini dirancang dengan estetika **Minimalist Samurai**:
-*   **Canvas Grid**: Latar belakang pola titik (Dot-Grid) yang memberikan ruang fokus maksimal.
-*   **Floating State**: Semua modul adalah panel melayang yang bisa diatur posisinya *(fully draggable)*.
-*   **Glassmorphism**: Lapisan antarmuka transparan dengan efek *frosted-glass* yang premium.
-*   **Bimodal**: Transisi mulus antara *Paper White* (Light) dan *Midnight* (Dark) mode.
+**MirroXD** bukan sekadar aplikasi *mirroring*. Ini adalah sebuah kanvas digital yang dirancang untuk mereka yang menghargai ketenangan dalam bekerja. Kami menggabungkan kekuatan kontrol Android dengan kelembutan antarmuka **Zero-UI**, menciptakan harmoni antara teknologi dan intuisi Anda.
 
 ---
 
-## 🛠️ MODUL & FITUR
+## 🍃 Filosfi Antarmuka
+Kami percaya bahwa teknologi seharusnya membebaskan, bukan membelenggu.
 
-#### 📱 Native Mirroring 3.0
-Koneksi latensi rendah menggunakan Scrcpy v3.0. Kendali penuh sentuhan dan navigasi langsung dari kursor Anda.
-
-#### 🎥 Cinematic Recording
-Alur kerja perekaman video murni ke format MKV yang stabil. Siap untuk kebutuhan konten gaming atau tutorial.
-
-#### ✂️ Precision Trimming
-Edit dasar tanpa meninggalkan workspace. Potong bagian video yang tidak perlu dengan perintah FFmpeg yang cepat dan akurat.
-
-#### ✨ Samur.AI Hub
-Integrasi langsung dengan Google Gemini. Jadikan AI sebagai asisten editing, pencatat otomatis, atau pemberi saran konten secara real-time.
+*   **Tipografi Manrope**: Dibangun dengan struktur font **Manrope** yang modern dan luwes, memberikan legibilitas yang nyaman bagi mata Anda.
+*   **Kanvas yang Hidup**: Tidak ada batasan side-bar yang kaku. Geser panel Anda seolah-olah Anda sedang mengatur kertas di atas meja kerja fisik.
+*   **Sentuhan Glassmorphism**: Antarmuka transparan dengan efek kabut yang halus, membuat fokus Anda tetap pada apa yang penting.
 
 ---
 
-## 🏗️ INFRASTRUKTUR TEKNIS
+## 🌑 Pengalaman Tanpa Batas
 
-| Komponen | Teknologi |
-| :--- | :--- |
-| **Frontend** | React 18, TypeScript, Vite |
-| **Backend** | Rust, Tauri API |
-| **Animation** | Framer Motion |
-| **Styling** | Tailwind CSS & CSS Variables |
-| **CLI Engine** | ADB, Scrcpy, FFmpeg |
+- **Kendali Native**: Hubungkan perangkat Anda dan rasakan respon yang instan. ⚡
+- **Perekaman Sinematik**: Abadikan momen berharga Anda dalam format MKV tanpa cela. 🎥
+- **Editor yang Ringkas**: Potong bagian video Anda secara instan tanpa perlu aplikasi berat. ✂️
+- **Kecerdasan AI (Samur.AI)**: Biarkan asisten AI kami membantu Anda merangkum diskusi atau menyusun ide klip video Anda. ✨
 
 ---
 
-## 🏁 MULAI CEPAT
+## 🛠️ Persiapan Langkah Demi Langkah
 
-1.  **Persiapan Biner**: Letakkan `adb.exe`, `scrcpy.exe`, dan `ffmpeg.exe` di dalam direktori `binaries/`.
-2.  **Instalasi**:
-    ```bash
-    npm install
-    ```
-3.  **Jalankan Workspace**:
-    ```bash
-    npm run tauri dev
-    ```
+MirroXD membutuhkan beberapa instrumen pendukung untuk bekerja dengan sempurna. Pastikan Anda memiliki file berikut di dalam folder `binaries/`:
+
+1.  **ADB Engine**: Untuk menjembatani instruksi ke perangkat.
+2.  **Scrcpy Native**: Mesin utama pemindaian layar.
+3.  **FFmpeg Composer**: Untuk memproses potongan video Anda dengan cepat.
 
 ---
 
-## 🏮 KONFIGURASI AI
-Buka panel **AI Hub** di dalam MirroXD, masukkan *Gemini API Key* Anda. Data kunci API disimpan secara aman di penyimpanan lokal peramban *(local storage)* dan tidak pernah dikirim ke server pihak ketiga manapun.
+## 🎨 Menyesuaikan Ruang Anda
+
+Ubah suasana hati aplikasi Anda dari **Light Mode** yang cerah dan inspiratif ke **Dark Mode** yang intim hanya dengan satu klik di sudut layar Anda. Masukkan API Key Gemini Anda di panel AI Hub untuk mengaktifkan kecerdasan Samur.AI yang sesungguhnya.
 
 ---
 
 <p align="center">
-  <i>"Simplicity is the ultimate sophistication."</i> — <b>MirroXD v0.1.0</b>
+  <i>"Teknologi yang baik adalah yang terasa menghilang saat Anda sedang berkarya."</i>
 </p>
 
 <p align="center">
-  Dokumentasi diperbarui oleh <b>Antigravity AI</b> • 2026
+  Ditenagai oleh <b>Tauri</b> & <b>Rust</b> • Dirancang dengan <b>Manrope</b> • 2026
 </p>
