@@ -1,52 +1,76 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/MirroXD-Project_Samur.ai-red?style=for-the-badge&logo=appveyor" />
+  <img src="https://img.shields.io/badge/MirroXD-Project_Samur.ai-EB5757?style=for-the-badge&logo=appveyor" />
+  <img src="https://img.shields.io/badge/Typography-Manrope-2F80ED?style=for-the-badge&logo=google-fonts" />
 </p>
 
-# 📱 MirroXD
-### Sebuah Ruang Kerja Digital yang Lebih Manusiawi.
+# 📱 MirroXD: Android Mirroring + Samur.AI Hub
 
-**MirroXD** bukan sekadar aplikasi *mirroring*. Ini adalah sebuah kanvas digital yang dirancang untuk mereka yang menghargai ketenangan dalam bekerja. Kami menggabungkan kekuatan kontrol Android dengan kelembutan antarmuka **Zero-UI**, menciptakan harmoni antara teknologi dan intuisi Anda.
-
----
-
-## 🍃 Filosfi Antarmuka
-Kami percaya bahwa teknologi seharusnya membebaskan, bukan membelenggu.
-
-*   **Tipografi Manrope**: Dibangun dengan struktur font **Manrope** yang modern dan luwes, memberikan legibilitas yang nyaman bagi mata Anda.
-*   **Kanvas yang Hidup**: Tidak ada batasan side-bar yang kaku. Geser panel Anda seolah-olah Anda sedang mengatur kertas di atas meja kerja fisik.
-*   **Sentuhan Glassmorphism**: Antarmuka transparan dengan efek kabut yang halus, membuat fokus Anda tetap pada apa yang penting.
+**MirroXD** adalah aplikasi mirroring Android berbasis desktop yang mengusung konsep **Zero UI**. Dirancang untuk kreator konten dan developer, aplikasi ini menggabungkan kontrol perangkat *native*, perekaman video berkualitas tinggi, dan asisten AI pintar dalam satu ekosistem kanvas yang dinamis.
 
 ---
 
-## 🌑 Pengalaman Tanpa Batas
+## ✨ Fitur Utama
 
-- **Kendali Native**: Hubungkan perangkat Anda dan rasakan respon yang instan. ⚡
-- **Perekaman Sinematik**: Abadikan momen berharga Anda dalam format MKV tanpa cela. 🎥
-- **Editor yang Ringkas**: Potong bagian video Anda secara instan tanpa perlu aplikasi berat. ✂️
-- **Kecerdasan AI (Samur.AI)**: Biarkan asisten AI kami membantu Anda merangkum diskusi atau menyusun ide klip video Anda. ✨
-
----
-
-## 🛠️ Persiapan Langkah Demi Langkah
-
-MirroXD membutuhkan beberapa instrumen pendukung untuk bekerja dengan sempurna. Pastikan Anda memiliki file berikut di dalam folder `binaries/`:
-
-1.  **ADB Engine**: Untuk menjembatani instruksi ke perangkat.
-2.  **Scrcpy Native**: Mesin utama pemindaian layar.
-3.  **FFmpeg Composer**: Untuk memproses potongan video Anda dengan cepat.
+- **🎨 Zero UI Draggable Canvas**: Antarmuka minimalis tanpa sidebar kaku. Geser dan atur panel (Devices, Config, Media, AI Hub) sesuka hati di atas kanvas bermotif dot-grid.
+- **🌓 Adaptive Theming**: Dukungan penuh untuk *Light Mode* yang bersih (inspirasi Samur.ai) dan *Dark Mode* elegan.
+- **🎥 High-Quality Recording**: Merekam aktivitas layar langsung ke format MKV menggunakan secondary process Scrcpy 3.0 yang stabil.
+- **✂️ Basic Video Editing (Trim)**: Potong durasi video rekaman Anda langsung di aplikasi menggunakan integrasi FFmpeg (Lossless).
+- **🧠 Samur.AI Hub**: Terhubung langsung ke Google Gemini AI asli. Analisis klip, buat deskripsi otomatis, atau asisten kreatif lainnya melalui panel melayang.
+- **⚡ Native Performance**: Dibangun dengan Rust (Tauri) untuk konsumsi resource yang sangat rendah dengan tipografi **Manrope** yang elegan.
 
 ---
 
-## 🎨 Menyesuaikan Ruang Anda
+## 🛠️ Persyaratan Sistem
 
-Ubah suasana hati aplikasi Anda dari **Light Mode** yang cerah dan inspiratif ke **Dark Mode** yang intim hanya dengan satu klik di sudut layar Anda. Masukkan API Key Gemini Anda di panel AI Hub untuk mengaktifkan kecerdasan Samur.AI yang sesungguhnya.
+Agar fitur berjalan maksimal, pastikan folder `binaries/` di root proyek berisi:
+1. `adb.exe` (Android Debug Bridge)
+2. `scrcpy.exe` & `scrcpy-server` (Versi 3.0+)
+3. `ffmpeg.exe` (Untuk fitur Trimming video)
+
+---
+
+## 🚀 Cara Menjalankan
+
+### Mode Pengembangan (Development)
+```bash
+# Install dependencies
+npm install
+
+# Jalankan dalam mode development
+npm run tauri dev
+```
+
+### Build Production
+```bash
+npm run tauri build
+```
+
+---
+
+## 📂 Struktur Proyek
+
+```text
+mirroxd/
+├── src/                # Frontend (React + Typescript)
+│   ├── components/     # UI Components (Floating Panels, AI Hub, Editor)
+│   └── main.tsx        # Entry point & Tipografi Manrope
+├── src-tauri/          # Backend (Rust)
+│   ├── src/
+│   │   ├── scrcpy.rs   # Native Process Scrcpy v3.0
+│   │   └── recording.rs # FFmpeg & Record Life-cycle
+└── binaries/           # External CLI Tools (ADB, Scrcpy, FFmpeg)
+```
+
+---
+
+## 📝 Catatan Penting
+
+- Pastikan **USB Debugging** sudah aktif di perangkat Android Anda.
+- Untuk fitur **samur.AI**, masukkan API Key Gemini Anda di panel AI Hub (tersimpan aman di local storage).
+- Fitur **Trimming** video memerlukan biner FFmpeg yang valid terdeteksi di dalam folder binaries.
 
 ---
 
 <p align="center">
-  <i>"Teknologi yang baik adalah yang terasa menghilang saat Anda sedang berkarya."</i>
-</p>
-
-<p align="center">
-  Ditenagai oleh <b>Tauri</b> & <b>Rust</b> • Dirancang dengan <b>Manrope</b> • 2026
+  Developed by <b>Antigravity AI</b> for <b>Teguhash8</b> • 2026
 </p>
