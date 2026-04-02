@@ -1,77 +1,78 @@
-# 📱 MirroXD: Android Mirroring + Samur.AI Hub
+# ⚔️ MIRROXD
+### The Zero-UI Workspace for Android & Samur.AI
 
-![MirroXD Logo](https://img.shields.io/badge/MirroXD-v0.1.0-red?style=for-the-badge)
-![Tauri](https://img.shields.io/badge/Tauri-2.0-blue?style=for-the-badge&logo=tauri)
-![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react)
-![Rust](https://img.shields.io/badge/Rust-Backend-dea584?style=for-the-badge&logo=rust)
-
-**MirroXD** adalah aplikasi mirroring Android berbasis desktop yang mengusung konsep **Zero UI**. Dirancang untuk kreator konten dan developer, aplikasi ini menggabungkan kontrol perangkat *native*, perekaman video berkualitas tinggi, dan asisten AI pintar dalam satu ekosistem kanvas yang dinamis.
-
----
-
-## ✨ Fitur Utama
-
-- **🎨 Zero UI Draggable Canvas**: Antarmuka minimalis tanpa sidebar kaku. Geser dan atur panel (Devices, Config, Media, AI Hub) sesuka hati di atas kanvas bermotif dot-grid.
-- **🌓 Adaptive Theming**: Dukungan penuh untuk *Light Mode* yang bersih (inspirasi Samur.ai) dan *Dark Mode* elegan.
-- **🎥 High-Quality Recording**: Merekam aktivitas layar langsung ke format MKV menggunakan secondary process Scrcpy 3.0 yang stabil.
-- **✂️ Basic Video Editing (Trim)**: Potong durasi video rekaman Anda langsung di aplikasi menggunakan integrasi FFmpeg (Lossless).
-- **🧠 Samur.AI Hub**: Terhubung langsung ke Google Gemini AI asli. Analisis klip, buat deskripsi otomatis, atau asisten kreatif lainnya melalui panel melayang.
-- **⚡ Native Performance**: Dibangun dengan Rust (Tauri) untuk konsumsi resource yang sangat rendah di PC Anda.
+<p align="left">
+  <img src="https://img.shields.io/badge/VERSION-0.1.0-EB5757?style=for-the-badge&logo=appveyor" />
+  <img src="https://img.shields.io/badge/ENGINE-TAURI_2.0-2F80ED?style=for-the-badge&logo=tauri" />
+  <img src="https://img.shields.io/badge/AI-GEMINI_READY-6FCF97?style=for-the-badge&logo=google-gemini" />
+</p>
 
 ---
 
-## 🛠️ Persyaratan Sistem
-
-Agar fitur berjalan maksimal, pastikan folder `binaries/` di root proyek berisi:
-1. `adb.exe` (Android Debug Bridge)
-2. `scrcpy.exe` & `scrcpy-server` (Versi 3.0+)
-3. `ffmpeg.exe` (Untuk fitur Trimming video)
+**MirroXD** mendefinisikan ulang cara Anda berinteraksi dengan perangkat Android. Mengadopsi prinsip **Zero-UI**, aplikasi ini membuang layout tradisional dan menggantinya dengan kanvas kreatif yang dinamis, ringan, dan ditenagai oleh kecerdasan buatan.
 
 ---
 
-## 🚀 Cara Menjalankan
-
-### Mode Pengembangan (Development)
-```bash
-# Install dependencies
-npm install
-
-# Jalankan dalam mode development
-npm run tauri dev
-```
-
-### Build Production
-```bash
-npm run tauri build
-```
+## 🔘 FILOSOFI DESAIN
+Aplikasi ini dirancang dengan estetika **Minimalist Samurai**:
+*   **Canvas Grid**: Latar belakang pola titik (Dot-Grid) yang memberikan ruang fokus maksimal.
+*   **Floating State**: Semua modul adalah panel melayang yang bisa diatur posisinya *(fully draggable)*.
+*   **Glassmorphism**: Lapisan antarmuka transparan dengan efek *frosted-glass* yang premium.
+*   **Bimodal**: Transisi mulus antara *Paper White* (Light) dan *Midnight* (Dark) mode.
 
 ---
 
-## 📂 Struktur Proyek
+## 🛠️ MODUL & FITUR
 
-```text
-mirroxd/
-├── src/                # Frontend (React + Typescript)
-│   ├── components/     # UI Components (Floating Panels, AI Hub, Editor)
-│   ├── hooks/          # Scrcpy & ADB Logic
-│   └── main.tsx        # Entry point & Window Label Management
-├── src-tauri/          # Backend (Rust)
-│   ├── src/
-│   │   ├── adb.rs      # Manajemen Koneksi ADB
-│   │   ├── scrcpy.rs   # Native Process Scrcpy v3.0
-│   │   └── recording.rs # FFmpeg & Record Life-cycle
-│   └── tauri.conf.json # Multi-window Configuration (Toolbar Overlay)
-└── binaries/           # External CLI Tools (ADB, Scrcpy, FFmpeg)
-```
+#### 📱 Native Mirroring 3.0
+Koneksi latensi rendah menggunakan Scrcpy v3.0. Kendali penuh sentuhan dan navigasi langsung dari kursor Anda.
+
+#### 🎥 Cinematic Recording
+Alur kerja perekaman video murni ke format MKV yang stabil. Siap untuk kebutuhan konten gaming atau tutorial.
+
+#### ✂️ Precision Trimming
+Edit dasar tanpa meninggalkan workspace. Potong bagian video yang tidak perlu dengan perintah FFmpeg yang cepat dan akurat.
+
+#### ✨ Samur.AI Hub
+Integrasi langsung dengan Google Gemini. Jadikan AI sebagai asisten editing, pencatat otomatis, atau pemberi saran konten secara real-time.
 
 ---
 
-## 📝 Catatan Penting
+## 🏗️ INFRASTRUKTUR TEKNIS
 
-- Pastikan **USB Debugging** sudah aktif di perangkat Android Anda.
-- Untuk fitur **samur.AI**, masukkan API Key Gemini Anda di panel AI Hub (tersimpan aman di local storage).
-- Fitur **Trimming** video memerlukan biner FFmpeg yang valid terdeteksi di dalam sistem atau folder binaries.
+| Komponen | Teknologi |
+| :--- | :--- |
+| **Frontend** | React 18, TypeScript, Vite |
+| **Backend** | Rust, Tauri API |
+| **Animation** | Framer Motion |
+| **Styling** | Tailwind CSS & CSS Variables |
+| **CLI Engine** | ADB, Scrcpy, FFmpeg |
 
 ---
 
-Developed with ❤️ by **Antigravity AI** for **Teguhash8**
+## 🏁 MULAI CEPAT
+
+1.  **Persiapan Biner**: Letakkan `adb.exe`, `scrcpy.exe`, dan `ffmpeg.exe` di dalam direktori `binaries/`.
+2.  **Instalasi**:
+    ```bash
+    npm install
+    ```
+3.  **Jalankan Workspace**:
+    ```bash
+    npm run tauri dev
+    ```
+
+---
+
+## 🏮 KONFIGURASI AI
+Buka panel **AI Hub** di dalam MirroXD, masukkan *Gemini API Key* Anda. Data kunci API disimpan secara aman di penyimpanan lokal peramban *(local storage)* dan tidak pernah dikirim ke server pihak ketiga manapun.
+
+---
+
+<p align="center">
+  <i>"Simplicity is the ultimate sophistication."</i> — <b>MirroXD v0.1.0</b>
+</p>
+
+<p align="center">
+  Dokumentasi diperbarui oleh <b>Antigravity AI</b> • 2026
+</p>
