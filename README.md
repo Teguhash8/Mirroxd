@@ -1,6 +1,10 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/MirroXD-Project_Samur.ai-EB5757?style=for-the-badge&logo=appveyor" />
-  <img src="https://img.shields.io/badge/Typography-Manrope-2F80ED?style=for-the-badge&logo=google-fonts" />
+  <img src="https://img.shields.io/badge/Tauri-24292e?style=for-the-badge&logo=tauri&logoColor=2496ED" />
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white" />
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+  <img src="https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" />
 </p>
 
 # 📱 MirroXD: Android Mirroring + Samur.AI Hub
