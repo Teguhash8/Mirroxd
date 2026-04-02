@@ -1,6 +1,4 @@
-// src-tauri/src/recording.rs
 // Recording pipeline — taps into H.264 stream buffer and writes to file
-
 use serde::{Deserialize, Serialize};
 use std::fs;
 
@@ -8,7 +6,7 @@ use std::path::PathBuf;
 use std::sync::{Arc, Mutex};
 use tauri::{command, AppHandle, Emitter};
 
-// ─── Structs ────────────────────────────────────────────────────────────────
+// ─── Structs
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 #[serde(rename_all = "lowercase")]
@@ -44,7 +42,7 @@ pub struct RecordingFile {
     pub duration_secs: Option<f64>,
 }
 
-// ─── Global State ───────────────────────────────────────────────────────────
+// ─── Global State
 
 lazy_static::lazy_static! {
     static ref RECORDING_STATUS: Arc<Mutex<RecordingStatus>> = Arc::new(Mutex::new(RecordingStatus {
@@ -58,7 +56,7 @@ lazy_static::lazy_static! {
     static ref RECORDING_START: Arc<Mutex<Option<std::time::Instant>>> = Arc::new(Mutex::new(None));
 }
 
-// ─── Helper: Get recordings directory ───────────────────────────────────────
+// ─── Helper: Get recordings directory
 
 fn get_recordings_dir() -> PathBuf {
     let videos_dir = dirs::video_dir().unwrap_or_else(|| {
@@ -81,8 +79,6 @@ fn generate_filename() -> String {
     format!("recording_{}.mkv", now.format("%H-%M-%S"))
 }
 
-// ─── Tauri Commands ─────────────────────────────────────────────────────────
-
 /// Start recording — launches background scrcpy to record to .mkv
 #[command]
 pub async fn start_recording(app: AppHandle) -> Result<RecordingStatus, RecordingError> {
@@ -98,13 +94,17 @@ pub async fn start_recording(app: AppHandle) -> Result<RecordingStatus, Recordin
     let scrcpy_exe = crate::scrcpy::get_scrcpy_exe_path();
     let adb_path = crate::scrcpy::get_adb_path();
 
-    let scrcpy_dir = std::path::Path::new(&scrcpy_exe).parent().expect("Invalid scrcpy path");
+    let scrcpy_dir = std::path::Path::new(&scrcpy_exe)
+        .parent()
+        .expect("Invalid scrcpy path");
 
     let args = vec![
-        "--serial".to_string(), serial,
+        "--serial".to_string(),
+        serial,
         "--no-video-playback".to_string(),
         "--no-audio-playback".to_string(),
-        "--record".to_string(), filepath.to_string_lossy().to_string(),
+        "--record".to_string(),
+        filepath.to_string_lossy().to_string(),
     ];
 
     let child = std::process::Command::new(&scrcpy_exe)
@@ -136,7 +136,7 @@ pub async fn start_recording(app: AppHandle) -> Result<RecordingStatus, Recordin
     std::thread::spawn(move || {
         loop {
             std::thread::sleep(std::time::Duration::from_millis(500));
-            
+
             let mut status = RECORDING_STATUS.lock().unwrap();
             if status.state != RecordingState::Recording {
                 break;
@@ -144,7 +144,7 @@ pub async fn start_recording(app: AppHandle) -> Result<RecordingStatus, Recordin
 
             if let Some(start) = *RECORDING_START.lock().unwrap() {
                 status.duration_secs = start.elapsed().as_secs_f64();
-                
+
                 // Update file size periodically
                 if let Some(path) = &status.output_path {
                     if let Ok(meta) = std::fs::metadata(path) {
@@ -152,7 +152,7 @@ pub async fn start_recording(app: AppHandle) -> Result<RecordingStatus, Recordin
                     }
                 }
             }
-            
+
             let _ = app_clone.emit("recording-status", &*status);
         }
     });
@@ -168,7 +168,7 @@ pub async fn start_recording(app: AppHandle) -> Result<RecordingStatus, Recordin
 pub async fn stop_recording(app: AppHandle) -> Result<RecordingStatus, RecordingError> {
     if let Some(mut child) = RECORDING_PROCESS.lock().unwrap().take() {
         let _ = child.kill();
-        let _ = child.wait(); // wait for it to actually terminate
+        let _ = child.wait();
     }
 
     let mkv_path = {
@@ -233,7 +233,11 @@ fn collect_recordings(dir: &PathBuf, recordings: &mut Vec<RecordingFile>) {
                 if ext == "mp4" || ext == "h264" || ext == "mkv" || ext == "webm" {
                     if let Ok(metadata) = fs::metadata(&path) {
                         recordings.push(RecordingFile {
-                            name: path.file_name().unwrap_or_default().to_string_lossy().to_string(),
+                            name: path
+                                .file_name()
+                                .unwrap_or_default()
+                                .to_string_lossy()
+                                .to_string(),
                             path: path.to_string_lossy().to_string(),
                             size_bytes: metadata.len(),
                             created_at: metadata
@@ -252,8 +256,6 @@ fn collect_recordings(dir: &PathBuf, recordings: &mut Vec<RecordingFile>) {
         }
     }
 }
-
-// ─── FFmpeg Muxing ──────────────────────────────────────────────────────────
 
 fn get_ffmpeg_path() -> String {
     if cfg!(debug_assertions) {
@@ -283,9 +285,8 @@ fn mux_h264_to_mp4(input: &str, output: &str) -> Result<(), String> {
 
     let result = std::process::Command::new(&ffmpeg)
         .args([
-            "-y",           // Overwrite
-            "-i", input,
-            "-c:v", "copy", // No re-encode
+            "-y", // Overwrite
+            "-i", input, "-c:v", "copy", // No re-encode
             output,
         ])
         .output()
@@ -331,16 +332,12 @@ pub async fn export_recording(
     app: AppHandle,
     input_path: String,
     output_path: String,
-    encoder: String,  // "copy", "h264_nvenc", "h264_amf", "h264_qsv", "libx264"
-    resolution: Option<String>, // "1920:1080", "1280:720"
+    encoder: String,
+    resolution: Option<String>,
 ) -> Result<String, RecordingError> {
     let ffmpeg = get_ffmpeg_path();
 
-    let mut args: Vec<String> = vec![
-        "-y".to_string(),
-        "-i".to_string(),
-        input_path.clone(),
-    ];
+    let mut args: Vec<String> = vec!["-y".to_string(), "-i".to_string(), input_path.clone()];
 
     // Video codec
     args.push("-c:v".to_string());

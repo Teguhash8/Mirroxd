@@ -9,18 +9,17 @@
 
 # 📱 MirroXD: Android Mirroring + Samur.AI Hub
 
-**MirroXD** adalah aplikasi mirroring Android berbasis desktop yang mengusung konsep **Zero UI**. Dirancang untuk kreator konten dan developer, aplikasi ini menggabungkan kontrol perangkat *native*, perekaman video berkualitas tinggi, dan asisten AI pintar dalam satu ekosistem kanvas yang dinamis.
+**MirroXD** adalah aplikasi mirroring Android berbasis desktop. Dirancang untuk kreator konten dan developer, aplikasi ini menggabungkan kontrol perangkat *native*, perekaman video berkualitas tinggi, dan asisten AI pintar dalam satu ekosistem kanvas yang dinamis.
 
 ---
 
 ## ✨ Fitur Utama
 
 - **🎨 Zero UI Draggable Canvas**: Antarmuka minimalis tanpa sidebar kaku. Geser dan atur panel (Devices, Config, Media, AI Hub) sesuka hati di atas kanvas bermotif dot-grid.
-- **🌓 Adaptive Theming**: Dukungan penuh untuk *Light Mode* yang bersih (inspirasi Samur.ai) dan *Dark Mode* elegan.
 - **🎥 High-Quality Recording**: Merekam aktivitas layar langsung ke format MKV menggunakan secondary process Scrcpy 3.0 yang stabil.
 - **✂️ Basic Video Editing (Trim)**: Potong durasi video rekaman Anda langsung di aplikasi menggunakan integrasi FFmpeg (Lossless).
 - **🧠 Samur.AI Hub**: Terhubung langsung ke Google Gemini AI asli. Analisis klip, buat deskripsi otomatis, atau asisten kreatif lainnya melalui panel melayang.
-- **⚡ Native Performance**: Dibangun dengan Rust (Tauri) untuk konsumsi resource yang sangat rendah dengan tipografi **Manrope** yang elegan.
+- **⚡ Native Performance**: Dibangun dengan Rust (Tauri) untuk konsumsi resource yang sangat rendah.
 
 ---
 
@@ -74,7 +73,3 @@ mirroxd/
 - Fitur **Trimming** video memerlukan biner FFmpeg yang valid terdeteksi di dalam folder binaries.
 
 ---
-
-<p align="center">
-  Developed by <b>Antigravity AI</b> for <b>Teguhash8</b> • 2026
-</p>
